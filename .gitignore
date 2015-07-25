@@ -1,0 +1,9 @@
+.idea
+export/
+logs/
+target/
+storage/
+
+# Vim
+*~
+.*.swp
