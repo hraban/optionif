@@ -1,6 +1,5 @@
 package net.obrg.optionif
 
-import scala.tools.nsc
 import scala.tools.nsc.{Global, Phase}
 import scala.tools.nsc.plugins.{Plugin, PluginComponent}
 

@@ -1,10 +1,10 @@
-scalaVersion := "2.11.7"
 
 lazy val commonSettings = Seq(
-  version := "0.1.0"
+  version := "0.1.0",
+  scalaVersion := "2.11.7"
 )
 
-lazy val compilerPlugin = project.
+lazy val compilerPlugin = (project in file(".")).
   settings(commonSettings: _*).
   settings(
     libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _ )
