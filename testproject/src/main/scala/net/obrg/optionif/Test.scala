@@ -1,4 +1,4 @@
-package localhost
+package net.obrg.optionif
 
 /**
  * Simple test program that should trigger the DivByZero plugin, if loaded

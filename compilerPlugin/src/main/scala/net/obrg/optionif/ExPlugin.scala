@@ -1,10 +1,8 @@
-package localhost
+package net.obrg.optionif
 
 import scala.tools.nsc
-import nsc.Global
-import nsc.Phase
-import nsc.plugins.Plugin
-import nsc.plugins.PluginComponent
+import scala.tools.nsc.{Global, Phase}
+import scala.tools.nsc.plugins.{Plugin, PluginComponent}
 
 class DivByZero(val global: Global) extends Plugin {
   import global._

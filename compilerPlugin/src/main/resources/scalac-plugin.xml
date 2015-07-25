@@ -1,4 +1,4 @@
 <plugin>
-  <name>divbyzero</name>
-  <classname>localhost.DivByZero</classname>
+  <name>optionif</name>
+  <classname>net.obrg.optionif.DivByZero</classname>
 </plugin>
