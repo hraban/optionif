@@ -6,4 +6,12 @@ lazy val commonSettings = Seq(
 
 lazy val compilerPlugin = project.
   settings(commonSettings: _*).
-  settings(libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _ ))
+  settings(
+    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _ )
+  )
+
+lazy val testproject = project.
+  settings(commonSettings: _*).
+  settings(
+    scalacOptions += "-Xplugin:" + (packageBin in Compile in compilerPlugin).value
+  )
