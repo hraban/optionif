@@ -27,7 +27,7 @@ class OptionIf(val global: Global) extends Plugin {
         for ( tree @ Apply(Select(rcvr, nme.DIV), List(Literal(Constant(0)))) <- unit.body;
              if rcvr.tpe <:< definitions.IntClass.tpe)
           {
-            unit.error(tree.pos, "definitely division by zero")
+            reporter.error(tree.pos, "definitely division by zero")
           }
       }
     }
