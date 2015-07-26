@@ -1,4 +1,4 @@
 <plugin>
   <name>optionif</name>
-  <classname>net.obrg.optionif.DivByZero</classname>
+  <classname>net.obrg.optionif.OptionIf</classname>
 </plugin>
