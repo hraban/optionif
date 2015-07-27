@@ -14,6 +14,7 @@ lazy val optionif = (project in file(".")).
 
 lazy val testproject = project.
   settings(commonSettings: _*).
+  dependsOn(optionif).
   settings(
     scalacOptions += "-Xplugin:" + (packageBin in Compile in optionif).value
   )
