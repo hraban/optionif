@@ -9,7 +9,7 @@ class OptionIf(val global: Global) extends Plugin {
   override val name = "optionif"
   override val description = "flattens map operations on options to if statements"
   override val components = List[PluginComponent](Component)
-  
+
   private object Component extends PluginComponent {
     override val global: OptionIf.this.global.type = OptionIf.this.global
     // I'm not 100% on these constraints, but afaik these are appropriate outer bounds.
@@ -24,11 +24,11 @@ class OptionIf(val global: Global) extends Plugin {
     class OptionIfPhase(prev: Phase) extends StdPhase(prev) {
       override def name = OptionIf.this.name
       override def apply(unit: CompilationUnit) {
-        for ( tree @ Apply(Select(rcvr, nme.DIV), List(Literal(Constant(0)))) <- unit.body;
-             if rcvr.tpe <:< definitions.IntClass.tpe)
-          {
-            reporter.error(tree.pos, "definitely division by zero")
-          }
+        for (tree @ Apply(TypeApply(Select(rcvr, TermName("map")), typetree), List(param)) <- unit.body;
+             isoption = rcvr.tpe <:< typeOf[Option[_]])
+        {
+          reporter.echo(tree.pos, s"found an Option.map on $rcvr with type ${rcvr.tpe} and typelist $typetree and arg $param")
+        }
       }
     }
   }
